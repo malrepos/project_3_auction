@@ -18,3 +18,4 @@
 - test and deploy
 - JS frontend
 - deploy to Goerli testnet
+
