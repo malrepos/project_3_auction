@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
 contract Auction {
@@ -23,6 +24,10 @@ contract Auction {
     event highestBidIncreased(address bidder, uint amount);
     // event fired detailing the auction winner and bid amount
     event auctionEnded(address winner, uint amount);
+
+    event Withdraw(address indexed bidder, uint amount);
+
+    event Winner(address winner, uint amount);
 
 
 
@@ -50,6 +55,11 @@ contract Auction {
     _;
 }
 
+    modifier onlyAfterEndTime {
+        require(block.timestamp > auctionEndTime, "You cannot withdraw your bid until the auction has ended");
+        _;
+    }
+
     function bid() public payable onlyNotOwner onlyBeforeEndTime{
         // Do not allow 0 value bids.
         require(msg.value > 0, "You must make a valid bid.");
@@ -73,20 +83,39 @@ contract Auction {
         }
     }
 
-    function withdraw() public payable returns(bool) {
-        require(ended, "You cannot withdraw your bid until the auction has ended");
-        uint amount = pendingReturns[msg.sender];
-        if(amount > 0) {
-            pendingReturns[msg.sender] = 0;
-        }
-        // what is !payable??
-        if(!payable(msg.sender).send(amount)){
-            pendingReturns[msg.sender] = amount;
-            return false;
+    // function withdraw() public payable returns(bool) {
+    //     require(ended, "You cannot withdraw your bid until the auction has ended");
+    //     uint amount = pendingReturns[msg.sender];
+    //     if(amount > 0) {
+    //         pendingReturns[msg.sender] = 0;
+    //     }
+    //     // what is !payable??
+    //     if(!payable(msg.sender).send(amount)){
+    //         pendingReturns[msg.sender] = amount;
+    //         return false;
 
-        }
-        else
-        return true;
+    //     }
+    //     else
+    //     return true;
+    // }
+     function withdraw() external onlyAfterEndTime {
+        uint bal = pendingReturns[msg.sender];
+        pendingReturns[msg.sender] = 0;
+        payable(msg.sender).transfer(bal);
+
+        emit Withdraw(msg.sender, bal);
+        emit Winner(highestBidder, highestBid);
+    }
+
+    function getEndTime() view public returns (uint) {
+        return auctionEndTime;
+    }
+    function getHighestBidder() view public returns(address){
+        return highestBidder;
+    }
+
+    function minimumBidAmount() view public returns(uint){
+        return minimumBid;
     }
 
 }
