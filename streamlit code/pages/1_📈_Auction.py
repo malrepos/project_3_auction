@@ -4,6 +4,7 @@ from web3 import Web3
 from pathlib import Path
 from dotenv import load_dotenv
 import streamlit as st
+from datetime import datetime
 
 
 load_dotenv()
@@ -26,7 +27,7 @@ def load_contract():
     # Set the contract address (this is the address of the deployed contract)
     contract_address = os.getenv("AUCTION_CONTRACT_ADDRESS")
 
-    # Get the contract
+     # Get the contract
     contract = w3.eth.contract(
         address=contract_address,
         abi=contract_abi
@@ -41,40 +42,61 @@ contract = load_contract()
 
 
     
-    
-st.markdown("---")
-
-st.markdown("## Choose an account to start an auction")
-accounts = w3.eth.accounts
-nft_owneraddress = st.selectbox("Select Account", options=accounts)
-
-st.markdown("## Start")
-if st.button("Start the Auction"):
-
-    contract.functions.start().transact({"from":nft_owneraddress})
-
 
 st.markdown("---")
-
-st.write("Choose an account to bid")
-
-address = st.selectbox("Select Account to BID", options=accounts)
-if st.button("Bid"):
-    contract.functions.bid(10000).transact({"from":address})
-
-
-st.markdown("---")
-
-
-st.markdown("## Current highestBid")
-if st.button("highestBid"):
-    highest_bid = contract.events.Bid().createFilter(fromBlock=0)
+st.markdown("## Current Highest Bid")
+if st.button("Check Bidding History"):
+    highest_bid = contract.events.highestBidIncreased().createFilter(fromBlock=0)
     reports = highest_bid.get_all_entries()
     for report in reports:
         report_dictionary = dict(report)
         amount = report_dictionary["args"]['amount']
 
             
-        st.markdown(
-            f"Bids : "
-            f"{amount}")
+        st.markdown(f"Bids :{amount}")
+
+st.markdown("---")
+
+st.markdown("## Select Account and Bid Amount")
+st.write("Choose an account to bid")
+accounts = w3.eth.accounts
+address = st.selectbox("Select Account to BID", options=accounts)
+bid_amount = st.number_input("Bid Amount", value=100, step=1)
+
+if st.button("Bid"):
+    contract.functions.bid().transact({'from':address, 'value':bid_amount})
+    st.write(f"Your bid was: {bid_amount} WEI.")
+st.markdown("---")
+
+
+
+st.markdown("## Auction End Time")
+if st.button("Check Auction Time"):
+    timestamp = contract.functions.getEndTime().call()
+    dt_object = datetime.fromtimestamp(timestamp)
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    st.write(f"Auction End :  {dt_object}")
+    st.write(f"Current Time: {now}")
+
+st.markdown("---")
+st.markdown("## Highest Bidder")
+
+if st.button("Check Highest Bidder Address"):
+    highestBidder_address = contract.functions.getHighestBidder().call()
+
+    st.write(f"Highest Bidder Address: {highestBidder_address}")
+
+
+st.markdown("---")
+st.markdown("## Winner Bid")
+# Events to be do by backend.
+#if st.button("Check Winner Address"):
+#    winner = contract.events.auctionEnded().createFilter(fromBlock=0)
+#    reports = winner.get_all_entries()
+    #for report in reports:
+    #    report_dictionary = dict(report)
+    #    amount = report_dictionary["args"]['amount']
+
+            
+#    st.markdown(f"Bids :{reports}")

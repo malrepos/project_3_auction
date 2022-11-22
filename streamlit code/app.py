@@ -111,24 +111,6 @@ if st.button("Register Artwork"):
 st.markdown("---")
 
 
-################################################################################
-# Approve for Auction
-################################################################################
-st.markdown("## Approve for Auction")
-
-# choose token ID
-total_nft = contract.functions.totalSupply().call()
-nft_id = st.selectbox("Choose NFT ID", list(range(total_nft)))
-
-if st.button("getApproved"):
-
-    # set auction contract address
-    auction_address = os.getenv("AUCTION_CONTRACT_ADDRESS")
-
-    contract.functions.approve(auction_address,nft_id).transact({'from':address})
-    getApproved_new_address = contract.functions.getApproved(nft_id).call()
-    st.write(f"The NFT has been approved for 'Auction Contract Address':{getApproved_new_address}")
-
 
 
 
