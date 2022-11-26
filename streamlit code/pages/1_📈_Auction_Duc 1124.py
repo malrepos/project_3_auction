@@ -162,7 +162,7 @@ address = st.sidebar.selectbox("Select Account to BID:", options=accounts)
 bid_amount = st.sidebar.number_input("Bid Amount (Wei):", value=100, step=1)
 
 if st.sidebar.button("Bid"):
-    contract.functions.bid().transact({'from': address, 'value': bid_amount})
+    contract.functions.bid().transact({'from': address, 'value': int(bid_amount)})
     st.sidebar.success(f"Your bid was: {bid_amount} Wei.", icon="✅")
 
 st.sidebar.markdown("---")
