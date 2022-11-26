@@ -1,19 +1,31 @@
 [
 	{
+		"inputs": [],
+		"name": "bid",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_biddingTime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_beneficiary",
+				"internalType": "address",
+				"name": "_nft",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_minimumBid",
+				"name": "_nftId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_startingBid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_biddingTime",
 				"type": "uint256"
 			}
 		],
@@ -24,9 +36,9 @@
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
+				"indexed": true,
 				"internalType": "address",
-				"name": "winner",
+				"name": "sender",
 				"type": "address"
 			},
 			{
@@ -36,8 +48,54 @@
 				"type": "uint256"
 			}
 		],
-		"name": "Winner",
+		"name": "Bid",
 		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "closeAuction",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "highestBidder",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "highestBid",
+				"type": "uint256"
+			}
+		],
+		"name": "CloseAuction",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "startAuction",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [],
+		"name": "StartAuction",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -59,44 +117,6 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "winner",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "auctionEnded",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "bidder",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "highestBidIncreased",
-		"type": "event"
-	},
-	{
 		"inputs": [],
 		"name": "auctionEndTime",
 		"outputs": [
@@ -111,12 +131,31 @@
 	},
 	{
 		"inputs": [],
-		"name": "beneficiary",
+		"name": "balanceOf",
 		"outputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"name": "bids",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -124,9 +163,15 @@
 	},
 	{
 		"inputs": [],
-		"name": "bid",
-		"outputs": [],
-		"stateMutability": "payable",
+		"name": "ended",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -150,6 +195,19 @@
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getNFTId",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -183,7 +241,20 @@
 	},
 	{
 		"inputs": [],
-		"name": "minimumBid",
+		"name": "nft",
+		"outputs": [
+			{
+				"internalType": "contract IERC721",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "nftId",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -196,12 +267,12 @@
 	},
 	{
 		"inputs": [],
-		"name": "minimumBidAmount",
+		"name": "seller",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "address payable",
 				"name": "",
-				"type": "uint256"
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -209,9 +280,15 @@
 	},
 	{
 		"inputs": [],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "started",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]

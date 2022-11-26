@@ -68,7 +68,7 @@ def pin_appraisal_report(report_content):
     return report_ipfs_hash
 
 
-st.title("Art Registry Appraisal System")
+st.title("Art Registry NFT")
 st.write("Choose an account to get started")
 accounts = w3.eth.accounts
 address = st.selectbox("Select Account", options=accounts)
@@ -110,6 +110,18 @@ if st.button("Register Artwork"):
 
 st.markdown("---")
 
+################################################################################
+# Check the owner of NFT
+################################################################################
+
+st.markdown("## Check the owner of NFT")
+total_nft = contract.functions.totalSupply().call()
+nft_id = st.selectbox("Select an NFT ID", list(range(total_nft)))
+
+# call the ownerOf( ) function , pass tokenid parameter
+if st.button("Owner Address"):
+    owner_address = contract.functions.ownerOf(nft_id ).call()
+    st.success (f'## NFT number {nft_id} : "{owner_address[:5]}.....{owner_address[-5:]}"')
 
 
 
@@ -117,61 +129,61 @@ st.markdown("---")
 ################################################################################
 # Appraise Art
 ################################################################################
-st.markdown("## Appraise Artwork")
-tokens = contract.functions.totalSupply().call()
-token_id = st.selectbox("Choose an Art Token ID", list(range(tokens)))
-new_appraisal_value = st.text_input("Enter the new appraisal amount")
-appraisal_report_content = st.text_area("Enter details for the Appraisal Report")
+##st.markdown("## Appraise Artwork")
+##tokens = contract.functions.totalSupply().call()
+##token_id = st.selectbox("Choose an Art Token ID", list(range(tokens)))
+##new_appraisal_value = st.text_input("Enter the new appraisal amount")
+##appraisal_report_content = st.text_area("Enter details for the Appraisal Report")
 
-if st.button("Appraise Artwork"):
+##if st.button("Appraise Artwork"):
 
     # Make a call to the contract to get the image uri
-    image_uri = str(contract.functions.imageUri(token_id).call())
+##    image_uri = str(contract.functions.imageUri(token_id).call())
     
     # Use the `pin_appraisal_report` helper function to pin an appraisal report for the report URI
-    appraisal_report_ipfs_hash =  pin_appraisal_report(image_uri + appraisal_report_content)
+##    appraisal_report_ipfs_hash =  pin_appraisal_report(image_uri + appraisal_report_content)
 
     # Copy and save the URI to this report for later use as the smart contract’s `reportURI` parameter.
-    report_uri = f"ipfs://{appraisal_report_ipfs_hash}"
+##    report_uri = f"ipfs://{appraisal_report_ipfs_hash}"
 
-    tx_hash = contract.functions.newAppraisal(
-        token_id,
-        int(new_appraisal_value),
-        report_uri,
-        image_uri
+##    tx_hash = contract.functions.newAppraisal(
+##        token_id,
+##        int(new_appraisal_value),
+##        report_uri,
+##        image_uri
 
-    ).transact({"from": w3.eth.accounts[0]})
-    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    st.write(receipt)
-st.markdown("---")
+##    ).transact({"from": w3.eth.accounts[0]})
+##    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+##    st.write(receipt)
+##st.markdown("---")
 
 ################################################################################
 # Get Appraisals
 ################################################################################
-st.markdown("## Get the appraisal report history")
-art_token_id = st.number_input("Artwork ID", value=0, step=1)
-if st.button("Get Appraisal Reports"):
-    appraisal_filter = contract.events.Appraisal.createFilter(
-        fromBlock=0, argument_filters={"tokenId": art_token_id}
-    )
-    reports = appraisal_filter.get_all_entries()
-    if reports:
-        for report in reports:
-            report_dictionary = dict(report)
-            st.markdown("### Appraisal Report Event Log")
-            st.write(report_dictionary)
-            st.markdown("### Pinata IPFS Report URI")
-            report_uri = report_dictionary["args"]["reportURI"]
-            report_ipfs_hash = report_uri[7:]
-            image_uri = report_dictionary["args"]["artJson"]
-            st.markdown(
-                f"The report is located at the following URI: "
-                f"{report_uri}"
-            )
-            st.write("You can also view the report URI with the following ipfs gateway link")
-            st.markdown(f"[IPFS Gateway Link](https://ipfs.io/ipfs/{report_ipfs_hash})")
-            st.markdown("### Appraisal Event Details")
-            st.write(report_dictionary["args"])
-            st.image(f'https://ipfs.io/ipfs/{image_uri}')
-    else:
-        st.write("This artwork has no new appraisals")
+##st.markdown("## Get the appraisal report history")
+##art_token_id = st.number_input("Artwork ID", value=0, step=1)
+##if st.button("Get Appraisal Reports"):
+#    appraisal_filter = contract.events.Appraisal.createFilter(
+#        fromBlock=0, argument_filters={"tokenId": art_token_id}
+#    )
+#    reports = appraisal_filter.get_all_entries()
+#    if reports:
+#        for report in reports:
+#            report_dictionary = dict(report)
+#            st.markdown("### Appraisal Report Event Log")
+#            st.write(report_dictionary)
+#            st.markdown("### Pinata IPFS Report URI")
+# #           report_uri = report_dictionary["args"]["reportURI"]
+#            report_ipfs_hash = report_uri[7:]
+#            image_uri = report_dictionary["args"]["artJson"]
+#            st.markdown(
+#                f"The report is located at the following URI: "
+#                f"{report_uri}"
+#            )
+#            st.write("You can also view the report URI with the following ipfs gateway link")
+#            st.markdown(f"[IPFS Gateway Link](https://ipfs.io/ipfs/{report_ipfs_hash})")
+#            st.markdown("### Appraisal Event Details")
+#            st.write(report_dictionary["args"])
+# #           st.image(f'https://ipfs.io/ipfs/{image_uri}')
+#    else:
+#        st.write("This artwork has no new appraisals")
