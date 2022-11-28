@@ -1,8 +1,6 @@
 ![](https://github.com/malrepos/project_3_auction/blob/main/Images/Project%203%20-%20Auctiom%20site.jpg)
 
-## AUCTION 
 
-![alt=""](Images/Auction.png)
 
 An auction is a sales event wherein potential buyers place competitive bids on assets or services either in an open or closed format. Auctions are popular because buyers and sellers believe they will get a good deal buying or selling assets. It usually involves the process of buying and selling goods or services by offering them up for bids, taking bids, and then selling the item to the highest bidder or buying the item from the lowest bidder.
 
