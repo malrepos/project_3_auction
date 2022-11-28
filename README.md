@@ -39,7 +39,7 @@ The backend is made up of two contracts. First, the NFT contract. This allows a 
 
 First we deploy our nft.sol contract, specifically "MyNFT". On deployment of this contract we go into the contract and mint an NFT. We choose our address, in this case the first address in our Remix list of addresses, and input a NFT ID, in this case we choose 42 (we can choose any number).
 
-![Deploying our NFT contract]("Images\Deploying our NFT contract.JPG")
+![alt="Deploying our NFT contract"](Images\Deploying our NFT contract.JPG)
 
 Second, we deploy our Auction.sol contract. Within the constructor of our auction contract there are a few parameters we need to input.
 In the address field we enter the address of the nft.sol contract which can be copied at the right of the deployed nft contract. We enter the ID of the NFT that we entered earlier (42).
@@ -126,26 +126,26 @@ Link providing a guide on how to - https://egghead.io/lessons/solidity-deploy-yo
 Adding Georli test network if your advanced setting is locked
 
 
-![alt=""](images/advanced.png)
+![alt=""](Images/advanced.png)
 
-![alt=""](images/showtestnets.png)
+![alt=""](Images/showtestnets.png)
 
-![alt=""](images/selectgoerli.png)
+![alt=""](Images/selectgoerli.png)
 
 - You will then need to signup to Alchemy and verify your email address
 
-![alt=""](images/signup.png)
+![alt=""](Images/signup.png)
 
-![alt=""](images/verifyemail.png)
+![alt=""](Images/verifyemail.png)
 
 - In the signup process it will require your card details at some point but because you selected 'free' it does not charge your card
 - Check your email to confirm the sign-up process. When that is done, you'll be back in the faucet page. Now, you can enter your wallet address and request some ETH. The transaction could take a bit. After that is done, check your wallet. You'll see a bit of Goerli ETH available.
 
-![alt=""](images/enterwalletaddress.png)
+![alt=""](Images/enterwalletaddress.png)
 
 - You can then run this through remix 
 
-![alt=""](images/remix.png)
+![alt=""](Images/remix.png)
 
 ----
 
