@@ -28,8 +28,11 @@ Cons of Auctions
 
 ![alt=""](images/traditional_auction.png)
 
-Our project focuses on developing an online auction market where NFT's can be bought and sold.
-This was created with various paramaters which allows for a trustworthy environment for users.
+### EXECUTIVE SUMMARY
+
+An NFT auction is an internet platform that allows the trading of non-fungible tokens for a fixed price or at an auction amount. Our platform was built to enable the buy and sell of various NFT’s. 
+The fintech industry can be seen as a rearing ground for adoption of this emerging technology. Existing companies may deploy smart contract to make their processes more cost and time efficient. The use of smart contracts in the fintech industry can be seen as a solution that can enable more efficient monitoring and execution of complex and large derivative contracts are usually based on comprehensive master agreements. For instance, payment related provisions of a contract that requires one party to pay a certain amount to another party upon the completion of certain events e.g., an auction bid being approved can be coded into a smart contract which will enable an automatic execution.
+
 
 #### BACKEND
 A smart contract was written in solidity to handle the auctions and the NFT's will be ERC tokens which contained steps -
