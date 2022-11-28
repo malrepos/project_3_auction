@@ -26,6 +26,17 @@ The fintech industry can be seen as a rearing ground for adoption of this emergi
 
 ## Backend
 
+#### Technology Used
+
+- Solidity (smart contracts are written in the Solidity programming language)
+- OpenZepellin (the standard ERC721 contract and others were imported into our contracts)
+- Remix (used to test and debug our smart contracts)
+- MetaMask (used as part of our smart contract testing and deployment)
+- Ganache (used to test our contracts and simulate multiple users)
+- Alchemy (the Alchemy faucet was used to acquire test ether for the Goerli test network)
+- Truffle (industry standard software used to test our smart contracts)
+- Node.js (used in Truffle to write the test scripts)
+
 The backend is made up of two contracts. First, the NFT contract. This allows a user to mint an NFT, among other functions, and is used by us to create an NFT that we can use in our auction contract.
 
 ### Deploying and Testing in Remix
