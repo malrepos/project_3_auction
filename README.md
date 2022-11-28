@@ -166,7 +166,7 @@ truffle compile
 
 Compiling will then create a new directory: "build". And within this we will find our contracts compiled into json files.
 
-![Truffle build Directory]("https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Build%20directory.JPG")
+![Truffle build Directory](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Build%20directory.JPG)
 
 Note that all smart contracts, including inherited contracts are compiled.
 
@@ -192,7 +192,7 @@ As you can see from the above screenshot, the test passed.
 
 ![demo](/Images/demo.gif)
 
-![auction demo()
+![auction demo(https://github.com/malrepos/project_3_auction/blob/main/Images/auction_contract.gif)
 
 ---
 ## Key inputs and Steps (as shown in Demo)
