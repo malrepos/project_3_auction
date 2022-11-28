@@ -9,7 +9,7 @@
 
 ## AUCTION 
 
-![alt=""](Images/Auction.png)
+![alt=""](images/Auction.png)
 
 An auction is a sales event wherein potential buyers place competitive bids on assets or services either in an open or closed format. Auctions are popular because buyers and sellers believe they will get a good deal buying or selling assets. It usually involves the process of buying and selling goods or services by offering them up for bids, taking bids, and then selling the item to the highest bidder or buying the item from the lowest bidder.
 
@@ -26,7 +26,7 @@ Cons of Auctions
 - Competitive bidding process can drive up price
 
 
-![alt=""](Images/traditional_auction.png)
+![alt=""](images/traditional_auction.png)
 
 ### EXECUTIVE SUMMARY
 
@@ -44,7 +44,7 @@ A smart contract was written in solidity to handle the auctions and the NFT's wi
 - Added a function to prevent bids from being withdrawn until the end of the auction
 
 
-![alt=""](Images/bid.png)
+![alt=""](images/bid.png)
 
 
 #### FRONTEND
@@ -70,4 +70,4 @@ Display relevant box, selection, buttons. For example
 
 
 
-![alt=""](Images/sold.png)
+![alt=""](images/sold.png)
