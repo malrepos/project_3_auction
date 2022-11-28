@@ -192,7 +192,7 @@ As you can see from the above screenshot, the test passed.
 
 ![demo](/Images/demo.gif)
 
-![auction demo(https://github.com/malrepos/project_3_auction/blob/main/Images/auction_contract.gif)
+![auction demo](https://github.com/malrepos/project_3_auction/blob/main/Images/auction_contract.gif)
 
 ---
 ## Key inputs and Steps (as shown in Demo)
