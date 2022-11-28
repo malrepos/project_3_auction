@@ -142,9 +142,12 @@ seller_address = st.sidebar.selectbox(
     "Only NFT owner can start an auction:", options=accounts)
 
 # msg.sender call startAuction() to start auction
+
+nft_id = contract.functions.getNFTId().call()
+
 if st.sidebar.button("Start"):
     contract.functions.startAuction().transact({'from': seller_address})
-    st.sidebar.success('Auction has started!', icon="✅")
+    st.sidebar.success(f"Auction has started fro NFT ID {nft_id}!", icon="✅")
 
 st.sidebar.markdown("---")
 
