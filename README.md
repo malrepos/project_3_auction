@@ -155,7 +155,7 @@ To begin, we created a new directory specifically for the truffle testing. Withi
 
 truffle init
 
-![Truffle init]("")
+![Truffle init]("Images/truffle%20Init.JPG")
 
 Upon completion truffle will create three new directories for us to put our files into:
 
