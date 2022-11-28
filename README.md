@@ -169,11 +169,11 @@ Then we need to compile our contracts:
 
 truffle compile
 
-![truffle Compile]("")
+![truffle Compile](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20compile.JPG)
 
 Compiling will then create a new directory: "build". And within this we will find our contracts compiled into json files.
 
-![Truffle build Directory]("")
+![Truffle build Directory]("https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Build%20directory.JPG")
 
 Note that all smart contracts, including inherited contracts are compiled.
 
@@ -183,13 +183,13 @@ We define what we are trying to achieve in our test, and set the functions we wi
 
 In our case we behan by simply deploying the auction.sol contract, including the parameters.
 
-![truffle test script]("")
+![truffle test script](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20test%20script.JPG)
 
 To run the test:
 
 truffle test
 
-![truffle test results]()
+![truffle test results](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20test%20results.JPG)
 
 As you can see from the above screenshot, the test passed.
 
