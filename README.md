@@ -44,7 +44,7 @@ A smart contract was written in solidity to handle the auctions and the NFT's wi
 - Added a function to prevent bids from being withdrawn until the end of the auction
 
 
-![alt=""](images/bid.png)
+![alt=""](images/Bid.png)
 
 
 #### FRONTEND
@@ -71,3 +71,5 @@ Display relevant box, selection, buttons. For example
 
 
 ![alt=""](images/sold.png)
+
+![alt=""](images/Goerlirun.png)
