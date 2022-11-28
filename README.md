@@ -216,3 +216,26 @@ As you can see from the above screenshot, the test passed.
 
 10. From front end, when auction contract is realy, Only onwer of NFT can `start` the auction, and time is counting down.
 11. Any address can `close` the auction ONLY after auction time ended.
+
+
+## Next Steps
+
+#### Countdown Timer
+
+One feature the team would have liked to include in the project is a countdown timer. As there is a time limit set by the owner for an auction, it would be useful for potential bidders to see the time remaining until the close of an auction. It would also create a sense of urgency, a clear deadline approaching, that would incentivise bidding, especially in the closing minutes.
+
+Unfortunately the front end tool streamlit was not suited to this functionality. It is possible to have a countdown timer in streamlit, as far as we could learn, such a timer would prevent any other function in the front end from being used.
+
+We were able to write a countdown timer in Solidity, and this can be seen in the backend directory - timer.sol. This too was not ideal as it requires a function call to display the current time left in the auction.
+
+Ultimately, in order to produce what is really a basic feature, we would need to utilize a more robust front end technology such as JavaScript.
+
+#### Smart Contract Testing
+
+Our smart contracts were tested using remix and careful auditing. We also made a start on more standardized testing using Truffle. With more time we would have utilized Truffle to complete a comprehensive test of all smart contract deployments and functions. This is standard practice in the industry and is vital for any product that is to be deployed to a live network such as the Ethereum mainnet.
+
+With more time we would become more familiar with the software Truffle and run specific tests on all our solidity functions.
+
+### Deployment
+
+Although we did deploy our contracts to Georli we would have like to deploy to a working network such as Arbitrum One or Optimism. Depoying to a layer 2 Ethereum network such as Arbitrum One would have been the obvious next step in producing a real world decentralized app that users can interact with in a meaningful way, with real financial cost. Regardless of whether our app had all the functionality we desired, or the attractiveness of the UI, deploying our app would have been a good learning experience for future projects and also completed the full process of dapp development from idea to end user.
