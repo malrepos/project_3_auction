@@ -155,7 +155,7 @@ To begin, we created a new directory specifically for the truffle testing. Withi
 
 truffle init
 
-![alt="Truffle init"](Images/truffle](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Init.JPG)
+![Truffle init](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Init.JPG)
 
 Upon completion truffle will create three new directories for us to put our files into:
 
