@@ -7,7 +7,7 @@
 
 ## AUCTION 
 
-![alt=""](images/Auction.png)
+![alt=""](Images/Auction.png)
 
 An auction is a sales event wherein potential buyers place competitive bids on assets or services either in an open or closed format. Auctions are popular because buyers and sellers believe they will get a good deal buying or selling assets. It usually involves the process of buying and selling goods or services by offering them up for bids, taking bids, and then selling the item to the highest bidder or buying the item from the lowest bidder.
 
@@ -24,7 +24,7 @@ Cons of Auctions
 - Competitive bidding process can drive up price
 
 
-![alt=""](images/traditional_auction.png)
+![alt=""](Images/traditional_auction.png)
 
 ### EXECUTIVE SUMMARY
 
