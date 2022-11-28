@@ -72,4 +72,3 @@ Display relevant box, selection, buttons. For example
 
 ![alt=""](images/sold.png)
 
-![alt=""](images/Goerlirun.png)

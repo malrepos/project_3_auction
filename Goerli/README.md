@@ -28,5 +28,3 @@ Adding Georli test network if your advanced setting is locked
 - You can then run this through remix 
 
 ![alt=""](images/remix.png)
-
-![alt=""](images/Goerlirun.png)
