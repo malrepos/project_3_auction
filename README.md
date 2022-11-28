@@ -1,9 +1,4 @@
-## Developers
-
-- Duc Long
-- Matthew Chen
-- Edafe Ogaga
-- Malcolm Miller
+![](https://github.com/malrepos/project_3_auction/blob/main/Images/Project%203%20-%20Auctiom%20site.jpg)
 
 ## AUCTION 
 
