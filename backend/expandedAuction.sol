@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.10;
 
+// import safeMath
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
 interface IERC721 {
     function transferFrom(
         address from,
@@ -10,6 +13,10 @@ interface IERC721 {
 }
 
 contract Auction {
+
+    // use safeMath for our uint256 operations
+    using SafeMath for uint256;
+
     event StartAuction();
     event Bid(address indexed sender, uint256 amount);
     event Withdraw(address indexed bidder, uint256 amount);
@@ -78,7 +85,8 @@ contract Auction {
         );
 
         if (highestBidder != address(0)) {
-            bids[highestBidder] += highestBid;
+        // using safeMath here to update our highestBidder value
+            bids[highestBidder] = bids[highestBidder].add(highestBid);
         }
 
         highestBid = msg.value;
