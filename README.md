@@ -199,13 +199,25 @@ As you can see from the above screenshot, the test passed.
 
 
 ---
+## Frontend
+
+#### Technology Used
+
+- [Web3.py](https://web3py.readthedocs.io/en/stable/index.html)
+- [Streamlit](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-an-app) (Frontend app)
+-  Python 3.7
+- [MetaMask](https://metamask.io/) (used as part of our smart contract testing and deployment)
+- [Ganache](https://trufflesuite.com/ganache/) (used to test our contracts and simulate multiple users)
+- [Pinata](https://www.pinata.cloud/) (file stored in ipfs)
+
+
 ## Front-End app Demo 
 
 ![demo](/Images/demo.gif)
 
 ![auction demo](https://github.com/malrepos/project_3_auction/blob/main/Images/auction_contract.gif)
 
----
+
 ## Key inputs and Steps (as shown in Demo)
 
 1. Compile both `nftRegistry.sol` and `modifiedAuction.sol` contracts in Remix.
@@ -216,8 +228,8 @@ As you can see from the above screenshot, the test passed.
 
 4. streamlit run `nft.py`.
 
-5. Owner of minted NFT itself must be the one of deploying the **auction** contact. (NFT owner and Auction Contract Seller must be the same).
-6. When deploying `auction.sol` auction contract, both `minted token_ID` and `Smart Contract` address are required. (One auction contract for one NFT_ID sale)
+5. Owner of minted NFT itself must be the one who deployed the **auction** contact. (NFT owner and Auction Contract Seller must be the same).
+6. When deploying `modifiedAuction.sol` auction contract, both `minted token_ID` and `Smart Contract` address are required. (One auction contract for one NFT_ID sale)
 
 7. update auction_contract_address in `.env`
 
@@ -225,7 +237,7 @@ As you can see from the above screenshot, the test passed.
 
 9. Fresh re-start streamlit run `nft.py`
 
-10. From front end, when auction contract is realy, Only onwer of NFT can `start` the auction, and time is counting down.
+10. From front end, when auction contract is ready, Only onwer of NFT can `start` the auction, and time is counting down.
 11. Any address can `close` the auction ONLY after auction time ended.
 
 
