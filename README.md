@@ -1,6 +1,7 @@
 ![](https://github.com/malrepos/project_3_auction/blob/main/Images/Project%203%20-%20Auctiom%20site.jpg)
 
 
+[PowerPoint Presentation](https://docs.google.com/presentation/d/1_UTaEfeZl3w9udoAOB--swAFHrN9bFe-SJbfsthi2bw/edit#slide=id.g1a3b8da3f7e_0_530)
 
 An auction is a sales event wherein potential buyers place competitive bids on assets or services either in an open or closed format. Auctions are popular because buyers and sellers believe they will get a good deal buying or selling assets. It usually involves the process of buying and selling goods or services by offering them up for bids, taking bids, and then selling the item to the highest bidder or buying the item from the lowest bidder.
 
@@ -157,7 +158,7 @@ Adding Georli test network if your advanced setting is locked
 
 To begin, we created a new directory specifically for the truffle testing. Within this folder type:
 
-truffle init
+```truffle init```
 
 ![Truffle init](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20Init.JPG)
 
@@ -171,7 +172,7 @@ We then added our completed solidity contracts (auction.sol, nft.sol) to our con
 
 Then we need to compile our contracts:
 
-truffle compile
+```truffle compile```
 
 ![truffle Compile](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20compile.JPG)
 
@@ -191,7 +192,7 @@ In our case we behan by simply deploying the auction.sol contract, including the
 
 To run the test:
 
-truffle test
+```truffle test```
 
 ![truffle test results](https://github.com/malrepos/project_3_auction/blob/main/Images/truffle%20test%20results.JPG)
 
