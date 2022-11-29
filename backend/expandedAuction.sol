@@ -156,6 +156,14 @@ contract Auction {
     function getHighestBidder() public view returns (address) {
         return highestBidder;
     }
+    
+    function getNFTId() public view returns(uint256){
+        return nftId;
+    }
+
+    function balanceOf() public view returns(uint) {
+        return address(this).balance;
+    }
 
     // function minimumBidAmount() view public returns(uint){
     //     return _startingBid;
