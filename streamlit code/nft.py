@@ -70,6 +70,8 @@ def pin_appraisal_report(report_content):
 
 st.title("Art Registry NFT")
 st.write("Choose an account to get started")
+
+
 accounts = w3.eth.accounts
 address = st.selectbox("Select Account", options=accounts)
 st.markdown("---")
